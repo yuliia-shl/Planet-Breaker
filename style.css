@@ -1,0 +1,352 @@
+
+body {
+    background-color: #000000;
+}
+/*Создаем стиль с параметрами Стартовой заставки*/
+#start-block {
+	width: 812px;
+	height: 700px;
+	background-image: url(./images/kosmonavt7.gif);
+	background-size: 100% 100%;
+	position: absolute;
+	overflow: hidden;
+	display: block;
+	top: 50%; /*сдвигает блок сверху на 50%*/
+	left: 50%; 
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+#start-block h1 {
+	position: relative;
+	color: #8a9fda;
+	font-size: 2.5em;
+	font-weight: normal;
+	display: inline-block;
+	margin: 0;
+	line-height: 1;
+	padding: 8px 20px 8px 2px;
+}
+
+#start-block h1:before {
+	content: "Choose the level";
+    position: absolute;
+    top: -560px;
+    left: -10px;
+    font-size: 1.5em;
+    transform: rotate(-20deg);
+    font-family: "Marck Script", cursive;
+}
+
+.bttn {
+    background-color: rgb(162, 129, 87);
+    margin: 585px 25px 0px 25px;
+    font-size: 24px;
+    display: inline-block;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: rgba(255,255,255,.5) 1px 1px, rgba(0, 0, 0, 0.3) 3px 7px 3px;
+    user-select: none;
+    padding: 1em 2em;
+    outline: none;
+    border-radius: 3px / 100%;
+    background-image: linear-gradient(45deg, rgba(78, 63, 63, 0) 30%, rgb(255, 255, 255), rgba(255, 65, 65, 0) 70%), linear-gradient(to right, rgba(255,255,255,1), rgba(199, 60, 60, 0) 20%, rgba(255,255,255,0) 90%, rgba(255,255,255,.3)), linear-gradient(to right, rgb(0, 0, 0), rgba(255,255,255,.9) 45%, rgba(70, 46, 46, 0.5)), linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(39, 30, 30, 0.5)), linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5)), linear-gradient(to right, rgb(14, 13, 12), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5));
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto, 100% 2px, 100% 2px, 100% 1px, 100% 1px;
+    background-position: 200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+    box-shadow: rgba(0, 0, 0, 0.5) 3px 10px 10px -10px;
+}
+.bttn:hover {
+  transition: .5s linear;
+  background-position: -200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+}
+.bttn:active {
+  background-color: rgb(88, 67, 41);
+}
+
+/*Создаем стиль с параметрами игрового поля*/
+#igraPole {
+	width: 812px;
+	height: 700px;
+	overflow: hidden;
+	background-image: url(./images/fon9.gif);
+    background-size: 832px 720px;
+	padding: 10px;
+	position: absolute; 
+	top: 50%; /*сдвигает блок сверху на 50%*/
+	left: 50%; 
+	transform: translate(-50%, -50%);
+}
+
+/*Делаем параметры нашему шарику*/
+#ball {
+	border-radius: 50%;
+	display: block;
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: calc(100% - 75px);
+	left: 50%;
+	 /*transition: all 0.01s; */
+	transform: translate(-50%, -50%);
+}
+
+#ball img {
+	display: block;
+	width: 96px;
+	display: block;
+	margin-top: -24px;
+	margin-left: -22px;
+}
+
+/*Делаем параметры жизней*/
+#lifes {
+	position: absolute;
+	height: 45px;
+	width: 40px;
+	top: 400px;
+	right: 40px;
+}
+
+/*Делаем параметры спанам (каждой жизни )*/
+#lifes span {
+	background-image: url(images/kosmonavt3.gif);
+	background-size: 70px 70px;
+    display: block;
+    width: 70px;
+    height: 70px;
+	/*margin: 5px;*/
+}
+
+/*Делаем параметры ракетке*/
+#raketka {
+	width: 160px;
+	height: 30px;
+	border: none;
+	background: linear-gradient(180deg, orange, blue);
+	position: absolute;
+	top: calc(100% - 50px);
+	/* Размещаем ракетку по середине*/
+	left: calc(50% - 80px);
+	/* transition: all 0.1s; */
+	background-image: url(images/raketka2.png);
+	background-size: 160px 30px;
+}
+/*Делаем параметры кубику*/
+.kubik {
+	background: #ffff;
+	background-position: center;
+	width: 50px;
+	height: 50px;
+	position: relative;
+	float: left;
+	 margin: 3px; 
+	border-radius: 50%;
+	left: auto;
+	top: auto;
+	background-image: url(images/kubik8.gif);
+	background-size: 50px 50px;
+}
+
+.ne-kubik {
+	background: none;
+	width: 50px;
+	height: 50px;
+	position: relative;
+	float: left;
+	 margin: 3px; 
+	border-radius: 10%;
+	left: auto;
+	top: auto;
+}
+
+/*========================
+СТИЛИ ДЛЯ окончания игры
+=========================*/
+/*Окончание игры*/
+#zastavka {
+	background: #f7f4ed;
+	background-image: url(images/kosmonavt1.gif);
+	background-size: 812px 700px;
+	width: 812px;
+	height: 700px;
+	margin: 0 auto;
+	/*border: 2px solid grey;*/
+	position: relative;
+	overflow: hidden;
+	display: none;
+}
+
+.konec-igra {
+	/*background: #F7F4ED;*/
+	padding: 31px 185px 180px 85px;
+	text-align: center;
+}
+.konec-igra h1 {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
+	position: relative;
+	color: #8a9fda;
+	font-size: 2.5em;
+	font-weight: normal;
+	display: inline-block;
+	margin: 0;
+	line-height: 1;
+	padding: 8px 20px 8px 2px;
+}
+.konec-igra h2:before {
+    content: "Don't cry!";
+    color: #8a9fda;
+    position: absolute;
+    top: 40px;
+    left: 25px;
+	font-size: 1.5em;
+	transform: rotate(-25deg);
+	font-family: "Marck Script", cursive;
+}
+.konec-igra h1:before {
+	content: "YOU LOSE";
+	position: absolute;
+	top: 30px;
+    left: -340px;
+	font-size: 1.5em;
+	transform: rotate(-25deg);
+	font-family: "Marck Script", cursive;
+}
+
+@media (max-width: 580px) {
+	.konec-igra {
+		padding-left: 130px;
+	}
+	.konec-igra h1 {
+		font-size: 2em;
+	}
+	.konec-igra h1:before {
+		left: -130px;
+	}
+}
+@media (max-width: 480px) {
+	.konec-igra {
+		padding-left: 100px;
+	}
+	.konec-igra h1 {
+		font-size: 1.5em;
+		padding-right: 10px;
+	}
+	.konec-igra h1:before {
+		left: -100px;
+	}
+}
+@media (max-width: 380px) {
+	.konec-igra {
+		padding-left: 90px;
+	}
+	.konec-igra h1 {
+		font-size: 1.3em;
+	}
+	.konec-igra h1:before {
+		left: -88px;
+	}
+}
+/*Заставка победы*/
+#zastavka2 {
+	background: #f7f4ed;
+	background-image: url(images/kosmonavt8.gif);
+	background-size: 812px 700px;
+	width: 812px;
+	height: 700px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	display: none;
+}
+
+.win {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+
+.win h1 {
+	position: relative;
+	color: #8a9fda;
+	font-size: 2.5em;
+	font-weight: normal;
+	display: inline-block;
+	margin: 0;
+	line-height: 1;
+	padding: 8px 20px 8px 2px;
+}
+
+.win h1:before {
+	content: "YOU WIN!";
+    position: absolute;
+    top: -20px;
+    left: -30px;
+    font-size: 1.5em;
+    transform: rotate(-25deg);
+    font-family: "Marck Script", cursive;
+}
+/*Стили кнопок*/
+.againBttn {
+	display: none;
+    background-color: rgb(162, 129, 87);
+    margin: 585px 25px 0px 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    font-size: 24px;
+    display: inline-block;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: rgba(255,255,255,.5) 1px 1px, rgba(0, 0, 0, 0.3) 3px 7px 3px;
+    user-select: none;
+    padding: 1em 2em;
+    outline: none;
+    border-radius: 3px / 100%;
+    background-image: linear-gradient(45deg, rgba(78, 63, 63, 0) 30%, rgb(255, 255, 255), rgba(255, 65, 65, 0) 70%), linear-gradient(to right, rgba(255,255,255,1), rgba(199, 60, 60, 0) 20%, rgba(255,255,255,0) 90%, rgba(255,255,255,.3)), linear-gradient(to right, rgb(0, 0, 0), rgba(255,255,255,.9) 45%, rgba(70, 46, 46, 0.5)), linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(39, 30, 30, 0.5)), linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5)), linear-gradient(to right, rgb(14, 13, 12), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5));
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto, 100% 2px, 100% 2px, 100% 1px, 100% 1px;
+    background-position: 200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+    box-shadow: rgba(0, 0, 0, 0.5) 3px 10px 10px -10px;
+}
+.againBttn:hover {
+  transition: .5s linear;
+  background-position: -200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+}
+.againBttn:active {
+  background-color: rgb(88, 67, 41);
+}
+
+.repeatBttn {
+	display: none;
+    background-color: rgb(162, 129, 87);
+    margin: 585px 25px 0px 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    font-size: 24px;
+    display: inline-block;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: rgba(255,255,255,.5) 1px 1px, rgba(0, 0, 0, 0.3) 3px 7px 3px;
+    user-select: none;
+    padding: 1em 2em;
+    outline: none;
+    border-radius: 3px / 100%;
+    background-image: linear-gradient(45deg, rgba(78, 63, 63, 0) 30%, rgb(255, 255, 255), rgba(255, 65, 65, 0) 70%), linear-gradient(to right, rgba(255,255,255,1), rgba(199, 60, 60, 0) 20%, rgba(255,255,255,0) 90%, rgba(255,255,255,.3)), linear-gradient(to right, rgb(0, 0, 0), rgba(255,255,255,.9) 45%, rgba(70, 46, 46, 0.5)), linear-gradient(to right, rgba(125,125,125,1), rgba(255,255,255,.9) 45%, rgba(39, 30, 30, 0.5)), linear-gradient(to right, rgba(223,190,170,1), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5)), linear-gradient(to right, rgb(14, 13, 12), rgba(255,255,255,.9) 45%, rgba(223,190,170,.5));
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto, 100% 2px, 100% 2px, 100% 1px, 100% 1px;
+    background-position: 200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+    box-shadow: rgba(0, 0, 0, 0.5) 3px 10px 10px -10px;
+}
+.repeatBttn:hover {
+  transition: .5s linear;
+  background-position: -200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+}
+.repeatBttn:active {
+  background-color: rgb(88, 67, 41);
+}
